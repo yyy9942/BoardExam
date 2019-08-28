@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="board">
+	<typeAlias alias="boardVO" type="kr.or.ddit.vo.BoardVO"/>
+	<sql id="selectAll">
+		SELECT	*
+		FROM
+		    (
+		        SELECT
+		            A.*,
+		            ROWNUM AS RNUM
+		        FROM
+		            (
+		                SELECT *
+		                FROM  BOARD
+		            ) A
+        <![CDATA[
+		        WHERE
+		            ROWNUM < #end#
+		    )
+		WHERE
+		    RNUM >= #start#	
+        ]]>
+	</sql>
+	
+	<sql id="searchCondition">
+		AND bo_delete != 'y'
+	</sql>
+	
+	<select id="boardList" parameterClass="map" resultClass="boardVO">
+		<include refid="selectAll"/>
+		<include refid="searchCondition"/>
+	</select>
+	
+	<select id="boardView" parameterClass="map" resultClass="boardVO">
+		SELECT * FROM BOARD
+		WHERE bo_id =#bo_id#
+	</select>
+	
+	<insert id="insertBoard">
+	<selectKey keyProperty="bo_id" resultClass="String">
+		SELECT SEQ_BOARD.NEXTVAL FROM DUAL
+	</selectKey>
+		INSERT INTO
+		BOARD(	bo_id, 
+				bo_seq, 
+				bo_depth,
+				bo_group,
+				bo_title,
+				bo_content,
+				mem_id,
+				bo_time)
+		VALUES(	#bo_id#, 
+				#bo_seq#, 
+				#bo_depth#,
+				#bo_group#,
+				#bo_title#,
+				#bo_content#,
+				#mem_id#,
+				#bo_time#)
+		
+	</insert>
+	<update id="plusHit" parameterClass="String">
+		UPDATE BOARD
+		SET BO_HIT = BO_HIT+1
+		WHERE BO_ID=#bo_id#
+	</update>
+	
+</sqlMap>	
+
+
+
+
+
+

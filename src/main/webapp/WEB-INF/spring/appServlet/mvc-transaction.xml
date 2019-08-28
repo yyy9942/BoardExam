@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	<!-- 
+		스프링 프레임워크 Commit과 Rollback처리
+			* @Transactional : Service Layer의 메서드 상단에 선언.
+								1. 어떤 트랜잭션 선택(신규 생성, 재활용, 처리X)
+								2. 익셉션 타입 열거(롤백과 커밋 조건 설정)
+			* 스프링 트랜잭션 매니저 : 트랜잭션 처리를 위한 취득 정보
+								1. 발생된 익셥션 정보
+								2. Service Layer 존재하는 @Transactional의 설정정보
+								3. @Transactional이 선언된 Service Layer의 메서드 프로토타입
+									interface IMemberService{
+										public MemberVO memberInfo(Map params);
+									}
+									
+									class IMemberServiceImpl implements IMemberSercie{
+										@Transactional(propagation=Requied_NEW, rollbackFor={SqlException.class, NestSqlException.class}
+										public MemberVO memberInfo(Map params) throws Exception{
+										
+										}
+									}
+			DispatcherServlet			Controller		Service layer		Dao layer		ibatis		DB
+			클라이언트 요청		=>					=>					=>				=>			=>
+														@Transactional													에러
+			Rollback			<=	Throws Exception<=	throws Exception<=	Throws Exception<=			<=
+																											정상
+			Commit				<=					<=					<=				<=			<=
+	 -->
+	 <!-- proxy-target-class="true" : Service Layer 내 클래스의 메서드 상단에 @Transactional 선언 활용시
+	 								해당 메서드의 프로토타입 추출을 위해 cglib 라이브러리를 요구 -->
+	<tx:annotation-driven transaction-manager="transactionMGR" proxy-target-class="false"/>
+	
+</beans>

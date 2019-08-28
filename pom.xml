@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>SpringToddler</groupId>
+	<artifactId>SpringToddler</artifactId>
+	<name>SpringToddler</name>
+	<packaging>war</packaging>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<properties>
+		<java-version>1.7</java-version>
+		<org.springframework-version>3.2.9.RELEASE</org.springframework-version>
+		<!-- spring batch -->
+		<org.springframework.batch-version>2.2.7.RELEASE</org.springframework.batch-version>
+		<!-- aop -->
+		<org.aspectj-version>1.6.10</org.aspectj-version>
+		<aspectjweaver.version>1.8.0</aspectjweaver.version>
+		<cglib.version>2.2.2</cglib.version>
+		<!-- logback -->
+		<org.slf4j-version>1.7.5</org.slf4j-version>
+		<logback-version>1.0.13</logback-version>
+		<jcl.over.slf4j-version>1.7.12</jcl.over.slf4j-version>
+		<logback.ext.spring-version>0.1.4</logback.ext.spring-version>
+		<!-- servlet -->
+		<servlet.api-version>2.5</servlet.api-version>
+		<jsp.api-version>2.1</jsp.api-version>
+		<!-- jstl -->
+		<jstl-version>1.2</jstl-version>
+		<jstl.api-version>1.2.1</jstl.api-version>
+		<!-- ibatis -->
+		<ibatis.sqlmap-version>2.3.4.726</ibatis.sqlmap-version>
+		<ojdbc6-version>11.2.0.3</ojdbc6-version>
+		<!-- quartz -->
+		<quartz-version>1.8.5</quartz-version>
+		<!-- common -->
+		<commons.dbcp-version>1.4</commons.dbcp-version>
+		<commons.pool-version>1.6</commons.pool-version>
+		<commons.fileupload-version>1.2.2</commons.fileupload-version>
+		<commons.io-version>2.3</commons.io-version>
+		<commons.lang3-version>3.1</commons.lang3-version>
+		<commons.logging-version>1.1.1</commons.logging-version>
+		<commons.digester-version>2.1</commons.digester-version>
+		<commons.compress-version>1.4.1</commons.compress-version>
+		<commons.beanutils-version>1.8.3</commons.beanutils-version>
+		<!-- jackson -->
+		<jackson-version>1.9.10</jackson-version>
+		<jackson.databind-version>2.3.0</jackson.databind-version>
+		<!-- itext -->
+		<itext-version>2.0.8</itext-version>
+		<itext.asian-version>5.2.0</itext.asian-version>
+		<!-- poi -->
+		<poi-version>3.7</poi-version>
+		<poi.ooxml-version>3.7</poi.ooxml-version>
+		<poi.ooxml.schemas-version>3.7</poi.ooxml.schemas-version>
+		<poi.scratchpad-version>3.1-FINAL</poi.scratchpad-version>
+		<!-- log4j -->
+		<log4j-version>1.2.15</log4j-version>
+		<!-- tiles -->
+		<tiles-extras>2.2.2</tiles-extras>
+		<!-- jdom -->
+		<jdom-version>1.1.3</jdom-version>
+		<!-- easybatch -->
+		<easybatch.spring-version>5.0.0</easybatch.spring-version>
+		<easybatch.flatfile-version>5.0.0</easybatch.flatfile-version>
+		<!-- super-csv read/write -->
+		<super.csv-version>2.1.0</super.csv-version>
+		<!-- etc -->
+		<hibernate.validator-version>4.0.2.GA</hibernate.validator-version>
+	</properties>
+
+
+	<dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- Spring Batch -->
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-core</artifactId>
+			<version>${org.springframework.batch-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
+			<version>${jstl.api-version}</version>
+		</dependency>
+
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectjweaver.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>${cglib.version}</version>
+		</dependency>
+
+		<!-- iBatis -->
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+			<version>${ibatis.sqlmap-version}</version>
+		</dependency>
+
+		<!-- oracle -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>${ojdbc6-version}</version>
+		</dependency>
+
+		<!-- quartz -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz-version}</version>
+		</dependency>
+
+		<!-- dbcp -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons.dbcp-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>${commons.pool-version}</version>
+		</dependency>
+
+		<!-- fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons.fileupload-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons.io-version}</version>
+		</dependency>
+
+		<!-- jackson json mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+		<!-- MappingJackson2JsonView -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.databind-version}</version>
+		</dependency>
+
+		<!-- itext -->
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>${itext-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itext-asian</artifactId>
+			<version>${itext.asian-version}</version>
+		</dependency>
+
+		<!-- poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.ooxml-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${poi.ooxml.schemas-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>${poi.scratchpad-version}</version>
+		</dependency>
+
+		<!-- commons -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons.logging-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>${commons.digester-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>${commons.compress-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons.beanutils-version}</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.logback-extensions</groupId>
+			<artifactId>logback-ext-spring</artifactId>
+			<version>${logback.ext.spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- tiles -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles-extras}</version>
+		</dependency>
+
+		<!-- jdom -->
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>${jdom-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.validator-version}</version>
+		</dependency>
+
+		<!-- easybatch -->
+		<dependency>
+			<groupId>org.easybatch</groupId>
+			<artifactId>easybatch-spring</artifactId>
+			<version>${easybatch.spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.easybatch</groupId>
+			<artifactId>easybatch-flatfile</artifactId>
+			<version>${easybatch.flatfile-version}</version>
+		</dependency>
+
+		<!-- super-csv file reader/writer -->
+		<dependency>
+			<groupId>net.sf.supercsv</groupId>
+			<artifactId>super-csv</artifactId>
+			<version>${super.csv-version}</version>
+		</dependency>
+	</dependencies>
+</project>

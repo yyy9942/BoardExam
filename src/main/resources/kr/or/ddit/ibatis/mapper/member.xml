@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+	<typeAlias alias="memberVO" type="kr.or.ddit.vo.MemberVO"/>
+	<sql id="selectAll">
+		SELECT 	*
+		FROM 	MEMBER
+	</sql>
+	
+<!-- 	<sql id="searchCondition"> -->
+<!-- 		<dynamic prepend="AND"> -->
+<!-- 			<isNotEmpty property="search_keyword" open="(" close=")"> -->
+<!-- 				<isEqual compareValue="ALL" property="search_keycode"> -->
+<!-- 					MEM_ID LIKE '%' || #search_keyword# || '%' -->
+<!-- 				OR MEM_NAME LIKE '%' || #search_keyword# || '%' -->
+<!-- 				OR (MEM_ADD1 || ' ' || MEM_ADD2) LIKE '%' || #search_keyword# || '%' -->
+<!-- 				</isEqual> -->
+<!-- 				<isEqual compareValue="MEMID" property="search_keycode"> -->
+<!-- 					MEM_ID LIKE '%' || #search_keyword# || '%' -->
+<!-- 				</isEqual> -->
+<!-- 				<isEqual compareValue="MEMNAME" property="search_keycode"> -->
+<!-- 					MEM_NAME LIKE '%' || #search_keyword# || '%' -->
+<!-- 				</isEqual> -->
+<!-- 				<isEqual compareValue="MEMADDR" property="search_keycode"> -->
+<!-- 					(MEM_ADD1 || ' ' || MEM_ADD2) LIKE '%' || #search_keyword# || '%' -->
+<!-- 				</isEqual> -->
+<!-- 			</isNotEmpty> -->
+<!-- 		</dynamic> -->
+<!-- 	</sql> -->
+	
+	
+
+	<select id="memberInfo" parameterClass="map" resultClass="memberVO">
+		<include refid="selectAll"/>
+		WHERE 	MEM_ID = #mem_id# AND
+				mem_delete = 'n'
+		<dynamic prepend="AND">
+			<isNotEmpty property="mem_pass">
+				MEM_PASS = #mem_pass#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<insert id="insertMember" parameterClass="memberVO">
+		INSERT INTO MEMBER(mem_id,
+		 mem_pass,
+		  mem_name,
+		   mem_birth,
+		    mem_addr,
+		     mem_hp,
+		      mem_mail)
+		VALUES (#mem_id#,
+				#mem_pass#,
+				#mem_name#,
+				#mem_birth#,
+				#mem_addr#,
+				#mem_hp#,
+				#mem_mail#)
+	</insert>
+	
+	
+	
+<!-- 	<select id="memberList" resultClass="memberVO" parameterClass="map"> -->
+<!-- 		<include refid="selectAll"/> -->
+<!-- 		WHERE mem_delete = 'n' -->
+<!-- 		<include refid="searchCondition"/> -->
+<!-- 	</select> -->
+<!-- 	<update id="memberUpdate" parameterClass="memberVO"> -->
+<!-- 		UPDATE 	MEMBER  -->
+<!-- 		SET 	MEM_PASS = #mem_pass# -->
+<!-- 				,MEM_HOMETEL = #mem_hometel# -->
+<!-- 				,MEM_HP = #mem_hp# -->
+<!-- 				,MEM_MAIL = #mem_mail# -->
+<!-- 				,MEM_ZIP = #mem_zip# -->
+<!-- 				,MEM_ADD1 = #mem_add1# -->
+<!-- 				,MEM_ADD2 = #mem_add2# -->
+<!-- 				,MEM_LIKE = #mem_like# -->
+<!-- 				,MEM_JOB = #mem_job# -->
+<!-- 		WHERE 	mem_id = #mem_id# -->
+<!-- 	</update>	 -->
+<!-- 	<update id="memberDelete" parameterClass="map"> -->
+<!-- 		UPDATE MEMBER -->
+<!-- 		SET MEM_DELETE = 'y' -->
+<!-- 		WHERE mem_id = #mem_id# -->
+<!-- 	</update> -->
+<!-- 	<insert id="memberInsert" parameterClass="memberVO"> -->
+<!-- 		INSERT INTO MEMBER (MEM_ID, -->
+<!-- 							MEM_PASS, -->
+<!-- 							MEM_NAME, -->
+<!-- 							MEM_BIR, -->
+<!-- 							MEM_ADD, -->
+<!-- 							MEM_HP, -->
+<!-- 							MEM_MAIL, -->
+<!-- 							MEM_DELETE)  -->
+<!-- 		VALUES (#mem_id#, -->
+<!-- 				#mem_pass#, -->
+<!-- 				#mem_bir#, -->
+<!-- 				#mem_add#, -->
+<!-- 				#mem_hp#, -->
+<!-- 				#mem_mail#, -->
+<!-- 				#mem_like#, -->
+<!-- 				'n') -->
+<!-- 	</insert> -->
+</sqlMap>	
+
+
+
+
+
+

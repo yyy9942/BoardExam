@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		@RequestBody : 클라이언트로부터 전송되는 전체 쿼리 스트링 형식의 문자열을 컨트롤러 메서드의
+						특정 파라메터가 취득 가능.
+		@ResponseBody : 컨트롤러 메서드의 반환값이 ViewResolver에 전달되지않고, 클라이언트(브라우저, ajax엔진)에 전달.
+		RedirectAttribute :  컨트롤러 메서드에서 다른 컨트롤러 메서드를 대상으로 POST 요청시 파라메터를 마치 Get 전송 방식인 것처럼 전달.
+	 -->
+	 <mvc:annotation-driven></mvc:annotation-driven>
+</beans>
