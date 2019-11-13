@@ -44,7 +44,7 @@
 		<commons.beanutils-version>1.8.3</commons.beanutils-version>
 		<!-- jackson -->
 		<jackson-version>1.9.10</jackson-version>
-		<jackson.databind-version>2.3.0</jackson.databind-version>
+		<jackson.databind-version>2.9.10.1</jackson.databind-version>
 		<!-- itext -->
 		<itext-version>2.0.8</itext-version>
 		<itext.asian-version>5.2.0</itext.asian-version>
