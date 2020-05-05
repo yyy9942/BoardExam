@@ -11,7 +11,7 @@
 		<java-version>1.7</java-version>
 		<org.springframework-version>3.2.9.RELEASE</org.springframework-version>
 		<!-- spring batch -->
-		<org.springframework.batch-version>2.2.7.RELEASE</org.springframework.batch-version>
+		<org.springframework.batch-version>4.0.0.RELEASE</org.springframework.batch-version>
 		<!-- aop -->
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<aspectjweaver.version>1.8.0</aspectjweaver.version>
