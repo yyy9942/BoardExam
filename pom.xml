@@ -65,7 +65,7 @@
 		<!-- super-csv read/write -->
 		<super.csv-version>2.1.0</super.csv-version>
 		<!-- etc -->
-		<hibernate.validator-version>4.0.2.GA</hibernate.validator-version>
+		<hibernate.validator-version>5.3.5.Final</hibernate.validator-version>
 	</properties>
 
 
