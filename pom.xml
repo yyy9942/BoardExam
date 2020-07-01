@@ -31,7 +31,7 @@
 		<ibatis.sqlmap-version>2.3.4.726</ibatis.sqlmap-version>
 		<ojdbc6-version>11.2.0.3</ojdbc6-version>
 		<!-- quartz -->
-		<quartz-version>1.8.5</quartz-version>
+		<quartz-version>2.3.2</quartz-version>
 		<!-- common -->
 		<commons.dbcp-version>1.4</commons.dbcp-version>
 		<commons.pool-version>1.6</commons.pool-version>
