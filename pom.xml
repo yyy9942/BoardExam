@@ -49,7 +49,7 @@
 		<itext-version>2.0.8</itext-version>
 		<itext.asian-version>5.2.0</itext.asian-version>
 		<!-- poi -->
-		<poi-version>3.7</poi-version>
+		<poi-version>3.17</poi-version>
 		<poi.ooxml-version>3.7</poi.ooxml-version>
 		<poi.ooxml.schemas-version>3.7</poi.ooxml.schemas-version>
 		<poi.scratchpad-version>3.1-FINAL</poi.scratchpad-version>
